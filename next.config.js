@@ -4,11 +4,10 @@ const nextConfig = {
         domains: [
             "pfudyqocrsepnnfgysmi.supabase.co"
         ]
-    }
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
 };
-
-eslint: {
-    ignoreDuringBuilds: true,
-},
 
 module.exports =  nextConfig;
