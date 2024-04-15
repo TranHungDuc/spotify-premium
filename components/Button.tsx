@@ -24,6 +24,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps> (({
             {children}
         </button>
     )
-})
+});
 
 export default Button;
