@@ -28,7 +28,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
 }) =>
     {
 
-    const player = usePlayer();4
+    const player = usePlayer();
     const [volume, setVolume] = useState(1);
 
     const [isPlaying, setIsPlaying] = useState(false);
@@ -69,13 +69,15 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     }
 
     const [play, {pause, sound}] = useSound(
-        songUrl,
+        song.song_path,
         {
             volume: volume,
-            onplay:() => setIsPlaying(true),
+            onplay:() => {
+                setIsPlaying(true);
+            },
             onend: () => {
                 setIsPlaying(false);
-                onPlayNext();
+                onPlayNext();    
             },
             onpause: () => setIsPlaying(false),
             format: ['mp3']
@@ -92,6 +94,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     const handlePlay = () => {
         if(!isPlaying) {
             play();
+            
         } else {
             pause();
         }
